@@ -1,0 +1,83 @@
+﻿Private Sub SendMail(ByVal strFrom As String, ByVal strTo As String, ByVal strSubject As String, ByVal strBody As String, ByVal strAttachments As String, ByVal strEmailServer As String)
+
+        'send the email 
+        Try
+            Dim ToMailAddress As New MailAddress(strTo)
+            Dim FromMailAddress As New MailAddress(strFrom)
+
+            Dim MyMessage As New System.Net.Mail.MailMessage()
+            MyMessage.From = FromMailAddress
+            MyMessage.To.Add(ToMailAddress)
+            MyMessage.Subject = strSubject
+            MyMessage.Body = strBody
+            If Not strAttachments.Equals(String.Empty) Then
+                Dim strFile As String
+                Dim strAttach() As String = strAttachments.Split(";")
+                For Each strFile In strAttach
+                    MyMessage.Attachments.Add(New Attachment(strFile.Trim()))
+                Next
+            End If
+
+            Dim MySmtpClient As New SmtpClient()
+            MySmtpClient.Host = strEmailServer
+            MySmtpClient.Port = wsEmailPort
+            MySmtpClient.Credentials = New System.Net.NetworkCredential("mmdafrica\mtmsadmins", "Pass123word")
+            MySmtpClient.Send(MyMessage)
+
+            bResult = evl.WriteToEventLog("Email Sent.", System.Reflection.MethodBase.GetCurrentMethod.Name, EventLogEntryType.Information, "MMD_2008")
+            oWrite.WriteLine("Email details = TO:" & strTo & " From " & strFrom)
+            oWrite.Flush()
+
+            bResult = evl.WriteToEventLog("Email details = TO:" & strTo & " From " & strFrom, System.Reflection.MethodBase.GetCurrentMethod.Name, EventLogEntryType.Information, "MMD_2008")
+        Catch ex As Exception
+            bResult = evl.WriteToEventLog(Err.Number & ": " & ex.Message, System.Reflection.MethodBase.GetCurrentMethod.Name, EventLogEntryType.Error, "MMD_2008")
+            oWrite.WriteLine("Error Occurred at " & Now & " in email")
+            oWrite.WriteLine(ex.Message)
+            oWrite.Flush()
+        End Try
+
+    End Sub
+     Private Sub SendMail2(ByVal strFrom As String, ByVal strTo As String, ByVal strSubject As String, ByVal strBody As String, ByVal strAttachments As String, ByVal strEmailServer As String)
+
+        'send the email 
+        Try
+            Dim eMail As New System.Net.Mail.MailMessage()
+            Dim client As New SmtpClient
+            client.Host = strEmailServer
+            bResult = evl.WriteToEventLog("Email section server = " & strEmailServer, System.Reflection.MethodBase.GetCurrentMethod.Name, EventLogEntryType.Information, "MMD_2008")
+            oWrite.WriteLine("Email section server = " & strEmailServer)
+            oWrite.Flush()
+            If InStr(strFrom, "<") = 0 Then
+                strFrom = "<" & strFrom & ">"
+            End If
+            If InStr(strTo, "<") = 0 Then
+                strTo = "<" & strTo & ">"
+            End If
+
+            With eMail
+                .From = New MailAddress(strFrom)
+                .To.Add(strTo)
+                .Subject = strSubject
+                .Body = strBody
+                If Not strAttachments.Equals(String.Empty) Then
+                    Dim strFile As String
+                    Dim strAttach() As String = strAttachments.Split(";")
+                    For Each strFile In strAttach
+                        .Attachments.Add(New Attachment(strFile.Trim()))
+                    Next
+                End If
+            End With
+            bResult = evl.WriteToEventLog("Email Sent.", System.Reflection.MethodBase.GetCurrentMethod.Name, EventLogEntryType.Information, "MMD_2008")
+            oWrite.WriteLine("Email details = TO:" & strTo & " From " & strFrom)
+            oWrite.Flush()
+
+            client.Send(eMail)
+            bResult = evl.WriteToEventLog("Email details = TO:" & strTo & " From " & strFrom, System.Reflection.MethodBase.GetCurrentMethod.Name, EventLogEntryType.Information, "MMD_2008")
+        Catch ex As Exception
+            bResult = evl.WriteToEventLog(Err.Number & ": " & ex.Message, System.Reflection.MethodBase.GetCurrentMethod.Name, EventLogEntryType.Error, "MMD_2008")
+            oWrite.WriteLine("Error Occurred at " & Now & " in email")
+            oWrite.WriteLine(ex.Message)
+            oWrite.Flush()
+        End Try
+
+    End Sub

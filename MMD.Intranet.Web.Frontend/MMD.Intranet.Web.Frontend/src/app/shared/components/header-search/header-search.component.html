@@ -1,0 +1,57 @@
+<div class="card search-component">
+    <div class="card-block">
+        <form class="form-inline" (ngSubmit)="submit(false)">
+            <div class="row">
+                <div *ngFor="let options of searchOptions">
+                    <!-- <div class=margin-right-8> -->
+                    <!-- <label class="form-control-label" for="{{options.name}}">{{options.name}}</label> -->
+                    <!-- <div class="col-md-10"> -->
+                    <div class="margin-right-8" *ngIf="options.type=='Selection'">
+                        <!-- <label class="col-sm-12">{{options.name}}</label> -->
+                        <div>{{options.name}}</div>
+                        <mmd-selection (selectionUpdated)="handleSelectionUpdate($event)" [selcetValue]="selcetedModelValue"
+                            [selcetionName]="options.name" [data]="options.data"></mmd-selection>
+                    </div>
+                    <div class="margin-right-8" *ngIf="options.type=='autoComplete'">
+                        <div>{{options.name}}</div>
+                        <mmd-parts-number [autoCompleteValue]="autoComplete" (partNumberUpdated)="handlePartNumberUpdated($event)"></mmd-parts-number>
+                    </div>
+                    <div class="margin-right-8" *ngIf="options.type=='text'">
+                        <div>{{options.name}}</div>
+                        <mmd-input-text [autoCompleteValue]="autoComplete" (searchUpdated)="handleSearchUpdate($event)"></mmd-input-text>
+                    </div>
+                    <div class="margin-right-8" *ngIf="options.type=='textrange'">
+                        <div>{{options.name}}</div>
+                        <mmd-input-text-range [autoCompleteValue]="autoComplete" (textRangeUpdated)="handleTextRangeUpdate($event)"></mmd-input-text-range>
+                    </div>
+                    <div class="margin-right-8" *ngIf="options.type=='date'">
+                        <div>{{options.name}}</div>
+                        <mmd-date [autoCompleteValue]="autoComplete" (dateUpdated)="handleDateUpdate($event)"></mmd-date>
+                    </div>
+                    <div class=margin-right-8 *ngIf="options.type=='dateRange'">
+                        <div>{{options.name}}</div>
+                        <mmd-date-range (dateRangeUpdated)="handleDateRangeUpdate($event)"></mmd-date-range>
+                    </div>
+                    <div class=margin-right-8 *ngIf="options.type=='numberRange'">
+                        <div>{{options.name}}</div>
+                        <mmd-input-range-number (rangeNumberUpdated)="handleRangeNumberUpdated($event)"></mmd-input-range-number>
+                    </div>
+                    <div class=margin-right-8 *ngIf="options.type=='number'">
+                        <div>{{options.name}}</div>
+                        <mmd-part-number (numberUpdated)="handleNumberUpdated($event)"></mmd-part-number>
+                    </div>
+                    <div class=margin-right-8 *ngIf="options.type=='checkbox'">
+                        <div>{{options.name}}</div>
+                        <mmd-checkbox (checkboxUpdated)="handleCheckboxUpdated($event)"></mmd-checkbox>
+                    </div>
+                </div>
+                <div class=margin-right-8>
+                    <button type="submit" [disabled]="!isFormValid" class="btn btn-sm buttonclass">
+                        <i class="fa fa-dot-circle-o"></i>
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

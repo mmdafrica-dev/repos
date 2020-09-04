@@ -1,0 +1,117 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-sm-12">
+            <form [formGroup]="searchForm" (ngSubmit)="submit()" novalidate class="form-horizontal">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>search Form</strong> Form
+                    </div>
+                    <div class="card-block">
+                        <div class="form-group">
+                            <label class="sr-only">Description</label>
+                            <input type="email" formControlName="description" name="if-email" class="form-control" placeholder="search by desc">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+                        <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Search Result
+                </div>
+                <div class="card-block">
+                    <table class="table table-bordered" [mfData]="result" #mf="mfDataTable" [mfRowsOnPage]="5" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <mfDefaultSorter by="parT1_PART">Part Number</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="partdesc">Part Description</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="partstD_SOURCE">Source</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="partqtY_STOCK">Stock</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="partsaleS_GROUP">Sale Gp</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="partdeF_SUPPLIER">Def Supplier</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="accmname">Name</mfDefaultSorter>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of mf.data">
+                                <td>{{item.parT1_PART}}</td>
+                                <td>{{item.partdesc}}</td>
+                                <td>{{item.partstD_SOURCE}}</td>
+                                <td>{{item.partqtY_STOCK}}</td>
+                                <td>{{item.partsaleS_GROUP}}</td>
+                                <td>{{item.partdeF_SUPPLIER}}</td>
+                                <td>{{item.accmname}}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6" style="padding:0px;">
+                                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <!--<table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Part Number</th>
+                <th>Part Description</th>
+                <th>Source</th>
+                <th>Stock</th>
+                <th>Sale Gp</th>
+                <th>Def Supplier</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of result">
+                <td>{{item.parT1_PART}}</td>
+                <td>{{item.partdesc}}</td>
+                <td>{{item.partstD_SOURCE}}</td>
+                <td>{{item.partqtY_STOCK}}</td>
+                <td>{{item.partsaleS_GROUP}}</td>
+                <td>{{item.partdeF_SUPPLIER}}</td>
+                <td>{{item.accmname}}</td>
+              
+              </tr>
+            </tbody>
+          </table>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>-->
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+</div>

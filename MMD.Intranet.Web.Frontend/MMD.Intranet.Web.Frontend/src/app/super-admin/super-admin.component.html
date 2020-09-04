@@ -1,0 +1,25 @@
+<div>
+  <div class="container">
+    <header>
+      <h3>Super Admin</h3>
+    </header>
+    <br />
+    <div class="navbar">
+      <ul class="nav navbar-nav">
+        <li class="toolbar-item">
+          <a routerLink="users" routerLinkActive="active">
+            <span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Users
+          </a>
+        </li>
+        <li class="toolbar-item">
+          <a routerLink="roles" routerLinkActive="active">
+            <span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Roles
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

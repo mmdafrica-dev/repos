@@ -1,0 +1,55 @@
+<div class="container" *ngIf="selectedItem">
+  <div class="row card-container">
+    <div class="col-sm-4 col-md-3 col-lg-2" *ngFor="let option of  selectedItem.searchOption.options">
+      <mmd-control-builder [searchoption]="option"></mmd-control-builder>
+    </div>
+    <!--<div class="col-sm-4 col-md-3 col-lg-2" *ngIf="selectedItem.searchOption.inSearchOption">
+      <mmd-control-builder (updateSelectedValue)="selectedOrder=$event" [noValue]="true" [searchoption]="selectedItem.searchOption.inSearchOption"></mmd-control-builder>
+    </div>
+    <div class="col-sm-4 col-md-3 col-lg-2" *ngIf="selectedItem.searchOption.searchFor">
+      <mmd-control-builder (updateSelectedValue)="selectedSearchFor=$event" [searchoption]="selectedItem.searchOption.dataBase"></mmd-control-builder>
+    </div>
+    <div class="col-sm-4 col-md-3 col-lg-2" *ngIf="selectedItem.searchOption.sortBy">
+      <mmd-control-builder (updateSelectedValue)="selectedSortBy=$event" [searchoption]="selectedItem.searchOption.sortBy"></mmd-control-builder>
+    </div>-->
+    <div class="col-sm-4 col-md-3 col-lg-2">
+      <button class="btn  btn-success" (click)="search()">Search</button>
+    </div>
+  </div>
+  <div class="row card-container" *ngIf="searchResult&&searchResult.length>0">
+    <div style="margin-top:20px;">
+      <section class="panel panel-primary">
+        <div class="panel-heading">
+          SearchResult
+        </div>
+        <div class="panel-body">
+          <table class="table table-inverse">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Part Number</th>
+                <th>Part Description</th>
+                <th>Source</th>
+                <th>Stock</th>
+                <th>Sale Gp</th>
+                <th>Def Supplier</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of searchResult">
+                <td>{{item.name}}</td>
+                <td>{{item.partNumber}}</td>
+                <td>{{item.partDescription}}</td>
+                <td>{{item.source}}</td>
+                <td>{{item.stock}}</td>
+                <td>{{item.saleGp}}</td>
+                <td>{{item.defSupplier}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

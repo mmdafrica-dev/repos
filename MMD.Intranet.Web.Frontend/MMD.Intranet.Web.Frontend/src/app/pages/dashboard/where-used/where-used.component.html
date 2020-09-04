@@ -1,0 +1,160 @@
+<div class="card">
+    <div class="card-block">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card-header">
+                    <strong> Where Used</strong>
+                </div>
+                <!-- <table class="table table-bordered" [mfData]="result" #mf="mfDataTable" [mfRowsOnPage]="5" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                    <thead>
+                        <tr class="heading">
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Order No
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Ln
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    JOb
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Supp
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Cust
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Name
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Cust Order Ref
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Desc
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    S.Grp
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Qty Req
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Orig Value
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Outst Value
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Crncy
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Qty Outst
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Outst Stl Value
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Dt Req
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Dt Prom
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="schD1_REF">
+                                    Dt Pl Desp
+                                </mfDefaultSorter>
+                            </th>
+                        </tr>
+                        <tr *ngFor="let item of data">
+                            <td>{{item.ordS1_REF}}</td>
+                            <td>{{item.ordS1_LINE}}</td>
+                            <td>{{item.WSLINESTATUS}}</td>
+                            <td>{{item.ordS4_CUS_SUP}}</td>
+                            <td>{{item.accM2_SHORT_NAME}}</td>
+                            <td>{{item.ordS2_CUSSUP_REF}}</td>
+                            <td>{{item.WSPARTDESC}}</td>
+                            <td>{{item.WSSALESGROUP}}</td>
+                            <td>{{item.ORDSQTY_REQUIRED}}</td>
+                            <td>{{item.ORDSNET_VALUE}}</td>
+                            <td>{{item.wsOutstValue}}</td>
+                            <td>{{item.ORDSPRICE_CURR}}</td>
+                            <td>{{item.WSOUTSTQTY}}</td>
+                            <td>{{item.wsOutstValue}}</td>
+                            <td>{{item.ordspricE_CURR}}</td>
+                            <td>{{item.wsOutstQty}}</td>
+                            <td>{{item.WSOUTSTSTLVALUE}}</td>
+                            <td>{{item.ORDSDATE_REQUEST}}</td>
+                            <td>{{item.ORDSDATE_PROMISE}}</td>
+                            <td>{{item.WSPLANNEDDESPATCH}}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table> -->
+                <!-- <mmd-table [islink]="true" [data]="bomData" [header]="bomHeader"></mmd-table> -->
+                <table class="table table-bordered table-striped table-hover" [mfData]="data | dataFilter :currentFilter: filterQuery:filterBycolumn"
+                    #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let item of hearder">
+                                <mfDefaultSorter by="{{item.name}}">{{item.displayText}}</mfDefaultSorter>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of mf.data">
+                            <td *ngFor="let th of hearder; let i = index" data-index="#i">
+                                <a class="link" (click)="partDetailClick()" routerLink="/extranet/partsearchdetail/{{item[th.name]}}/whereUsed" *ngIf="i==0">
+                                    {{item[th.name]}}</a>
+                                <span *ngIf="i!=0"> {{item[th.name]}}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="7" style="padding:0px;">
+                                <mfBootstrapPaginator [rowsOnPageSet]="[50,100,200]"></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

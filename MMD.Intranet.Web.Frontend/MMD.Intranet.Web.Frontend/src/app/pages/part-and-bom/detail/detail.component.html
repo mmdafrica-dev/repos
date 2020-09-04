@@ -1,0 +1,717 @@
+<div class="card block">
+    <div class="card-block">
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+                <accordion>
+                    <accordion-group #group [isOpen]="true">
+                        <div accordion-heading>
+                            <strong> Part Detail</strong>
+                            <i class="pull-right float-xs-right glyphicon " [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}"></i>
+                        </div>
+                        <table class="table table-bordered table-hover">
+                            <tr>
+                                <td class="heading-td">
+                                    Part
+                                </td>
+                                <td colspan="3">
+                                    {{data.parT1_PART}}
+                                </td>
+                                <td class="heading-td">
+                                    Date Created
+                                </td>
+                                <td>
+                                    {{data.partdatE_CREATED}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="heading-td">
+                                    Description
+                                </td>
+                                <td colspan="5">
+                                    {{data.partdesc}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="heading-td">
+                                    Cross Reference
+                                </td>
+                                <td colspan="5">
+                                    {{data.parT2_XREF}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="heading-td">
+                                    Prod Group
+                                </td>
+                                <td>
+                                    {{data.partproD_GROUP}}
+                                </td>
+                                <td class="heading-td">
+                                    Sales Group
+                                </td>
+                                <td>
+                                    {{data.partsaleS_GROUP}}
+                                </td>
+                                <td class="heading-td">
+                                    Commodity
+                                </td>
+                                <td>
+                                    {{data.partcommodity}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="heading-td">
+                                    Cost Center
+                                </td>
+                                <td>
+                                    {{data.partcosT_CENTRE}}
+                                </td>
+                                <td class="heading-td">
+                                    Rev
+                                </td>
+                                <td>
+                                    {{data.wsRev}}
+                                </td>
+                                <td class="heading-td">
+                                    ERN
+                                </td>
+                                <td>
+                                    {{data.wsErn}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Source
+                                </td>
+                                <td>
+                                    {{data.wsSource}}
+                                    <!-- //partstD_SOURCE -->
+                                </td>
+                                <td class="heading-td">
+                                    Phantom
+                                </td>
+                                <td>
+                                    {{data.partphantom}}
+                                </td>
+                                <td class="heading-td">
+                                    Cost Batch Size
+                                </td>
+                                <td>
+                                    {{data.partcosT_BATCH}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="heading-td">
+                                    Buyer
+                                </td>
+                                <td>
+                                    {{data.partbuyer}}
+                                </td>
+                                <td class="heading-td">
+                                    Planner
+                                </td>
+                                <td>
+                                    {{data.partplanner}}
+                                </td>
+                                <td class="heading-td">
+                                    Salesman
+                                </td>
+                                <td>
+                                    {{data.partsalesman}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Def Cost El
+                                </td>
+                                <td>
+                                    {{data.pdefcost_element}}
+                                </td>
+                                <td class="heading-td">
+                                    Obs Code
+                                </td>
+                                <td>
+                                    {{data.partobS_CODE}}
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Basic Unit
+                                </td>
+                                <td>
+                                    {{data.partbasiC_UNIT}}
+                                </td>
+                                <td class="heading-td">
+                                    Iss Unit
+                                </td>
+                                <td>
+                                    {{data.partisS_UNIT}}
+                                </td>
+                                <td class="heading-td">
+                                    Rec Unit
+                                </td>
+                                <td>
+                                    {{data.partreC_UNIT}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="heading-td">
+                                    Alt Unit
+                                </td>
+                                <td>
+                                    {{data.partalT_UNIT}}
+                                </td>
+                                <td class="heading-td">
+                                    Conv Factor
+                                </td>
+                                <td>
+                                    {{data.partalT_CON_FACT}}
+                                </td>
+                                <td class="heading-td">
+                                    Free Stock
+                                </td>
+                                <td>
+                                    {{data.wsFreeStock}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Bom Changed By
+                                </td>
+                                <td>
+                                    {{data.partalT_PART_1}}
+                                </td>
+                                <td class="heading-td">
+                                    Alt Part 2
+                                </td>
+                                <td>
+                                    {{data.partalT_PART_2}}
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Basic Weight
+                                </td>
+                                <td>
+                                    {{data.partbasiC_WEIGHT}}
+                                </td>
+                                <td class="heading-td">
+                                    Unit
+                                </td>
+                                <td>
+                                    {{data.partweighT_UNIT}}
+                                </td>
+                                <td class="heading-td">
+                                    Est Drawing Weight
+                                </td>
+                                <td>
+                                    {{data.partanalY_CODE1}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="heading-td">
+                                    Widths
+                                </td>
+                                <td>
+                                    {{data.partdiM1}}
+                                </td>
+                                <td class="heading-td">
+                                    Thicknesses
+                                </td>
+                                <td>
+                                    {{data.partdiM2}}
+                                </td>
+                                <td class="heading-td">
+                                    Lengths
+                                </td>
+                                <td>
+                                    {{data.partdiM3}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="heading-td">
+                                    Selling Price
+                                </td>
+                                <td>
+                                    {{data.wsListPrice}}
+                                </td>
+                                <td class="heading-td">
+                                    Selling Price Less 27%
+                                </td>
+                                <td>
+                                    {{data.wsListPriceLess27}}
+                                </td>
+                                <td class="heading-td">
+                                    Selling Price Less 37%
+                                </td>
+                                <td>
+                                    {{data.wsListPriceLess37}}
+                                </td>
+                            </tr>
+                        </table>
+                    </accordion-group>
+                </accordion>
+            </div>
+            <div class="col-md-6" *ngIf="false">
+                <accordion>
+                    <accordion-group #group2>
+                        <div accordion-heading>
+                            Stock/Allocation Totals
+                            <i class="pull-right float-xs-right glyphicon" [ngClass]="{'glyphicon-chevron-down': group2?.isOpen, 'glyphicon-chevron-right': !group2?.isOpen}"></i>
+                        </div>
+                        <table class="table table-bordered table-hover">
+                            <tr>
+                                <td class="heading-td" colspan="2">
+                                    Stock Totals
+                                </td>
+                                <td class="heading-td" colspan="2">
+                                    Orders
+                                </td>
+                                <td class="heading-td" colspan="2">
+                                    Allocations
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="heading-td">
+                                    Stock
+                                </td>
+                                <td>
+                                    {{data.partqtY_STOCK}}
+                                </td>
+                                <td class="heading-td">
+                                    Suggested
+                                </td>
+                                <td>
+                                    {{data.partorD_UNCOM}}
+                                </td>
+                                <td class="heading-td">
+                                    Frim
+                                </td>
+                                <td>
+                                    {{data.partalloC_FIRM}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Transit
+                                </td>
+                                <td>
+                                    {{data.partqtY_TRANS}}
+                                </td>
+                                <td class="heading-td">
+                                    Frim Works
+                                </td>
+                                <td>
+                                    {{data.partorD_FIRM}}
+                                </td>
+                                <td class="heading-td">
+                                    Frim Subcon
+                                </td>
+                                <td>
+                                    {{data.partproD_RATE}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Good Inwards
+                                </td>
+                                <td>
+                                    {{data.partqtY_GI}}
+                                </td>
+                                <td class="heading-td">
+                                    Rel Works
+                                </td>
+                                <td>
+                                    {{data.partorD_COM}}
+                                </td>
+                                <td class="heading-td">
+                                    Release
+                                </td>
+                                <td>
+                                    {{data.partalloC_COM}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Despatch
+                                </td>
+                                <td>
+                                    {{data.partqtY_DESP}}
+                                </td>
+                                <td class="heading-td">
+                                    Frim Puschase
+                                </td>
+                                <td>
+                                    {{data.partorD_UNREL}}
+                                </td>
+                                <td class="heading-td">
+                                    Rel Subcon
+                                </td>
+                                <td>
+                                    {{data.partalloC_SUG}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Remote Stores
+                                </td>
+                                <td>
+                                    {{data.partqtY_1}}
+                                </td>
+                                <td class="heading-td">
+                                    Rel Puschase
+                                </td>
+                                <td>
+                                    {{data.partorD_PUR}}
+                                </td>
+                                <td class="heading-td">
+                                    Sales
+                                </td>
+                                <td>
+                                    {{data.partalloC_SAL}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Quarantine
+                                </td>
+                                <td>
+                                    {{data.partqtY_QUAR}}
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td class="heading-td">
+                                    Suggested
+                                </td>
+                                <td>
+                                    {{data.ws_sugg_ALOC}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    W.I.P
+                                </td>
+                                <td>
+                                    {{data.partqtY_THWIP}}
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Subcontract
+                                </td>
+                                <td>
+                                    {{data.partmrP_STOCK}}
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </table>
+                    </accordion-group>
+                </accordion>
+            </div>
+        </div>
+        <div class="row" *ngIf="false">
+            <div class="col-md-6">
+                <accordion>
+                    <accordion-group #group3>
+                        <div accordion-heading>
+                            PD 11 Details
+                            <i class="pull-right float-xs-right glyphicon" [ngClass]="{'glyphicon-chevron-down': group3?.isOpen, 'glyphicon-chevron-right': !group3?.isOpen}"></i>
+                        </div>
+                        <table class="table table-bordered table-hover">
+                            <tr>
+                                <td class="heading-td">
+                                    PA Code
+                                </td>
+                                <td>
+                                    {{data.partpA_CODE}}
+                                    <!-- {{data.partpA_CODE1}} -->
+                                </td>
+                                <td class="heading-td">
+                                    Bluk Iss?
+                                </td>
+                                <td>
+                                    {{data.wsBulkIss}}
+                                </td>
+                                <td class="heading-td">
+                                    Control Coded?
+                                </td>
+                                <td>
+                                    {{data.wsControlCoded}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    At S/Con?
+                                </td>
+                                <td>
+                                    {{data.wsAtSubcon}}
+                                </td>
+                                <td class="heading-td">
+                                    Blackflush?
+                                </td>
+                                <td>
+                                    {{data.wsBackflush}}
+                                </td>
+                                <td class="heading-td">
+                                    Pegging?
+                                </td>
+                                <td>
+                                    {{data.wsPegging}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Traceability Req'd?
+                                </td>
+                                <td>
+                                    {{data.wsTraceable}}
+                                </td>
+                                <td class="heading-td">
+                                    Lot Control?
+                                </td>
+                                <td>
+                                    {{data.wsLotControl}}
+                                </td>
+                                <td class="heading-td">
+                                    Fifo Issues?
+                                </td>
+                                <td>
+                                    {{data.wsFifoIssues}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Cost Method
+                                </td>
+                                <td>
+                                    {{data.partproJ_BAL_IND}}
+                                </td>
+                                <td class="heading-td">
+                                    Scrap %
+                                </td>
+                                <td>
+                                    {{data.partratE_SCRAP}}
+                                </td>
+                                <td class="heading-td">
+                                    Scrap Qty
+                                </td>
+                                <td>
+                                    {{data.partqtY_SCRAP}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Lead Time
+                                </td>
+                                <td>
+                                    {{data.partleaD_TIME}}
+                                </td>
+                                <td class="heading-td">
+                                    Insp L/T?
+                                </td>
+                                <td>
+                                    {{data.partinspecT_LEAD}}
+                                </td>
+                                <td class="heading-td">
+                                    Desp Lead Time?
+                                </td>
+                                <td>
+                                    {{data.partperD_IN_DAYS}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Quoted L/T
+                                </td>
+                                <td>
+                                    {{data.partquoteD_LEAD}}
+                                </td>
+                                <td class="heading-td">
+                                    Cumitve L/V
+                                </td>
+                                <td>
+                                    {{data.partaggrO_LEAD}}
+                                </td>
+                                <td class="heading-td">
+                                    Shelf Life
+                                </td>
+                                <td>
+                                    {{data.partshelF_LIFE}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Min Stock
+                                </td>
+                                <td>
+                                    {{data.partmiN_STOCK}}
+                                </td>
+                                <td class="heading-td">
+                                    Min Batch
+                                </td>
+                                <td>
+                                    {{data.partmiN_BATCH}}
+                                </td>
+                                <td class="heading-td">
+                                    Max Batch
+                                </td>
+                                <td>
+                                    {{data.partmaX_BATCH}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Order Mult
+                                </td>
+                                <td>
+                                    {{data.partordeR_MULT}}
+                                </td>
+                                <td class="heading-td">
+                                    Receipt Record
+                                </td>
+                                <td>
+                                    {{data.partorD_ROUND}}
+                                </td>
+                                <td class="heading-td">
+                                    Issue Round
+                                </td>
+                                <td>
+                                    {{data.partissuE_ROUND}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Reorder Qty
+                                </td>
+                                <td>
+                                    {{data.partroq}}
+                                </td>
+                                <td class="heading-td">
+                                    Reord Level
+                                </td>
+                                <td>
+                                    {{data.partreorD_LEVEL}}
+                                </td>
+                                <td class="heading-td">
+                                    Plan'g Timefence
+                                </td>
+                                <td>
+                                    {{data.partplaN_TIMFENC}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Ord Policy
+                                </td>
+                                <td>
+                                    {{data.partorD_POLICY}}
+                                </td>
+                                <td class="heading-td">
+                                    Time Bkt Len
+                                </td>
+                                <td>
+                                    {{data.partperiod}}
+                                </td>
+                                <td class="heading-td">
+                                    Max Mast Sched
+                                </td>
+                                <td>
+                                    {{data.miscconV_FACTOR}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Dem Timefence
+                                </td>
+                                <td>
+                                    {{data.partdeM_TIMFENCE}}
+                                </td>
+                                <td class="heading-td">
+                                    Default Supp
+                                </td>
+                                <td>
+                                    {{data.partdeF_SUPPLIER}}
+                                </td>
+                                <td class="heading-td">
+                                    Supp part
+                                </td>
+                                <td>
+                                    {{data.partdeF_SUP_PART}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="heading-td">
+                                    Default Store
+                                </td>
+                                <td>
+                                    {{data.partdeF_STORE}}
+                                </td>
+                                <td class="heading-td">
+                                    Default Bin
+                                </td>
+                                <td>
+                                    {{data.partdeF_BIN}}
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </table>
+                    </accordion-group>
+                </accordion>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div>
+    </div>
+</div> -->

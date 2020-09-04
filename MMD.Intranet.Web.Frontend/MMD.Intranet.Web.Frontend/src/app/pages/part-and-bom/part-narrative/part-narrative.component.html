@@ -1,0 +1,66 @@
+<div class="card">
+
+    <div class="card-block">
+        <div class="row">
+            <div class="col-md-12">
+
+                <!-- <table class="table table-bordered" [mfData]="result" #mf="mfDataTable" [mfRowsOnPage]="5" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                    <thead>
+                        <tr class="heading">
+                            <th>
+                                <mfDefaultSorter by="parT1_PART">
+                                    PART1 PART
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="narR1_REF_RECTYP">
+                                    NARR REF RECTYP
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="narR1_REF_LINE">
+                                    NARR1 REF LINE
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="narR1_SUB_LINE">
+                                    NARR1 SUB LINE
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="narR1_OPER_NO">
+                                    NARR1 OPER NO
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="narrnar">
+                                    NARRNAR
+                                </mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="narrprint">
+                                    NARRPRINT
+                                </mfDefaultSorter>
+                            </th>
+                        </tr>
+                        <tr *ngFor="let item of data">
+                            <td>{{item.parT1_PART}}</td>
+                            <td>{{item.narR1_REF_RECTYP}}</td>
+                            <td>{{item.narR1_REF_LINE}}</td>
+                            <td>{{item.narR1_SUB_LINE}}</td>
+                            <td>{{item.narR1_OPER_NO}}</td>
+                            <td>{{item.narrnar}}</td>
+                            <td>{{item.narrprint}}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table> -->
+                <div class="card-header">
+                    <strong> Part Narrative</strong>
+                </div>
+                <mmd-table [data]="data" [header]="header"></mmd-table>
+            </div>
+        </div>
+    </div>
+</div>

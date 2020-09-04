@@ -1,0 +1,26 @@
+<ng-container>
+  <td colspan="2">
+    <table class="table table-bordered table-hover pannel-table2">
+      <tr *ngFor="let header of panel2hearder[0]; let k=index" data-index="#k">
+        <td class="heading-td">
+          {{header}}
+        </td>
+        <td class="data-td">
+          {{data[header]}}
+        </td>
+      </tr>
+    </table>
+  </td>
+  <td colspan="2">
+    <table class="table table-bordered table-hover pannel-table2">
+      <tr *ngFor="let header of panel2hearder[1]; let k=index" data-index="#k">
+        <td class="heading-td">
+          {{header}}
+        </td>
+        <td class="data-td">
+          {{data[header]}}
+        </td>
+      </tr>
+    </table>
+  </td>
+</ng-container>

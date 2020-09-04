@@ -1,0 +1,98 @@
+<div class="animated fadeIn">
+    <div class="card">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 card-padding" [hidden]="!isPartAccessable">
+                        <div class="card">
+                            <div class="card-header">
+                                <h6>PARTS SEARCH</h6>
+                            </div>
+                            <div class="card-block paddingright0">
+                                <form #partForm="ngForm" (ngSubmit)="partSearchFormSubmit(partForm)">
+                                    <div class="input-group">
+                                        <input type="text" (change)="onPartFormChange(searchFor)"
+                                            [(ngModel)]="part.searchFor" required #searchFor="ngModel" name="searchFor"
+                                            class="form-control" placeholder="SEARCH PARTS">
+                                        <input style="margin-left: 2%;" *ngIf="isPartRange" [(ngModel)]="part.searchTo"
+                                            required #searchTo="ngModel" name="searchTo" type="text"
+                                            class="form-control" placeholder="SEARCH PARTS">
+                                        <span style="margin-left: 2%;"
+                                            class="input-group-btn pull-right margin-right1p">
+                                            <button class="btn btn-secondary" type="submit">Submit</button>
+                                        </span>
+                                    </div>
+                                    <div *ngIf="partForm.invalid && partForm.submitted" [ngClass]="'error'">
+                                        Search Part required.
+                                    </div>
+                                    <label class="radio-inline">
+                                        <input type="radio" (change)="partSearchByChange()" [(ngModel)]="part.searchBy"
+                                            [value]="'PARTLIST'" name="searchBy"> By number
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" (change)="partSearchByChange()" [(ngModel)]="part.searchBy"
+                                            [value]="'PARTSEARCH'" name="searchBy"> By description
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" (change)="partSearchByChange()" [(ngModel)]="part.searchBy"
+                                            [value]="'PARTNARRSEARCH'" name="searchBy"> By narrative
+                                    </label>
+                                    <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 card-padding" [hidden]="!isRatesAccessable">
+                        <div class="card ">
+                            <div class="card-header">
+                                <h6>FX RATES</h6>
+                            </div>
+
+                            <div class="card-block paddingright0">
+                                <form #fxForm="ngForm" (ngSubmit)="fxRatesFormSubmit(fxForm)">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6">
+                                            <label>{{fromDate}}</label>
+                                        </div>
+                                        <!-- <input type="date" [(ngModel)]="fromDate" required #DateFrom="ngModel" name="DateFrom" class="form-control" placeholder="SEARCH PARTS"> -->
+                                        <div class="col-md-6 col-sm-6">
+                                            <button style="margin-right: 2%;"
+                                                class="btn btn-secondary pull-right margin-right1p"
+                                                type="submit">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 card-padding" [hidden]="!isSalesOrderAccessable">
+                        <div class="card">
+                            <div class="card-header">
+                                <h6>SALES ORDER & ORDER STATUS</h6>
+                            </div>
+                            <div class="card-block paddingright0" *ngIf="isSalesOrderAccessable">
+                                <form #paForm="ngForm" class="pull-right margin-right1p"
+                                    (ngSubmit)="salesOrderFormSubmit()">
+                                    <div class="input-group">
+                                        <span class="input-group-btn ">
+                                            <button class="btn btn-secondary" type="submit">Go</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ng-container *ngFor="let gennyItem of miniGennyList">
+                        <div class="col-md-6 col-lg-4 card-padding genric-enquiry" [hidden]="!isGenericAccessable">
+                            <mini-genny [gennyName]="gennyItem.groupName" [genericList]="gennyItem.items"></mini-genny>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

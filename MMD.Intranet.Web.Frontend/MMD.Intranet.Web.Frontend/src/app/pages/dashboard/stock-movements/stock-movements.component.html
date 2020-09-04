@@ -1,0 +1,91 @@
+<div class="card">
+    <div class="card-block">
+        <div class="row">
+            <div class="col-md-12">
+                Stock Movements
+                <table class="table table-bordered" [mfData]="result" #mf="mfDataTable" [mfRowsOnPage]="5" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                    <thead>
+                        <tr class="heading">
+                            <th>
+                                <mfDefaultSorter by="smoV1_REF">Ref</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smoV1_REF_LINE">Line</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smoV4_CONTRACT">Job</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smoV1_DATE">Date</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smoV1_TIME">Time</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smoV2_ACTION">Action</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smovadJ_REP_ID">Addit Ref</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smovloC_FROM">Fr St</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smovbiN_FROM">Fr Bin</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smovloC_TO">To St</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smovbiN_TO">To Bin</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smoV6_LOT_REF">Lot Ref</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smoV6_LOT_LINE">Lot Ln</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smovadJ_CODE">Adj Code</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="ovflcomment">Comment</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smovqty">Qty</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="smovvalue">Value</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="wscurvalue">Cur Val</mfDefaultSorter>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <!-- <tr *ngFor="let item of collection">
+                        <td>{{item.smoV1_REF}}</td>
+                        <td>{{item.smoV1_REF_LINE}}</td>
+                        <td>{{item.smoV4_CONTRACT}}</td>
+                        <td>{{item.smoV1_DATE}}</td>
+                        <td>{{item.smoV1_TIME}}</td>
+                        <td>{{item.smoV2_ACTION}}</td>
+                        <td>{{item.smovadJ_REP_ID}}</td>
+                        <td>{{item.smovloC_FROM}}</td>
+                        <td>{{item.smovbiN_FROM}}</td>
+                        <td>{{item.smovloC_TO}}</td>
+                        <td>{{item.smovbiN_TO}}</td>
+                        <td>{{item.smoV6_LOT_REF}}</td>
+                        <td>{{item.smoV6_LOT_LINE}}</td>
+                        <td>{{item.smovadJ_CODE}}</td>
+                        <td>{{item.ovflcomment}}</td>
+                        <td>{{item.smovqty}}</td>
+                        <td>{{item.smovvalue}}</td>
+                        <td>{{item.wscurvalue}}</td>
+                    </tr> -->
+            </div>
+        </div>
+    </div>
+</div>

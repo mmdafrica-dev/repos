@@ -1,0 +1,187 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-sm-12">
+            <div style="width:100%;height:2px;">
+                <!-- <header-search [searchOptions]="searchOptions.result.options" [autoComplete]="autoCompleteValue" [hideSubmit]="" (headerSearchUpdated)="handleFormSubmit($event)"></header-search> -->
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <strong>Search Results</strong>
+                    <!-- <button (click)="exportToExcel()" class="btn btn-default pull-right">Export to Excel</button> -->
+                </div>
+                <div class="card-block">
+                    <table class="table table-bordered table-striped table-hover" [mfData]="data | dataFilter :currentFilter: filterQuery:filterBycolumn"
+                        #mf="mfDataTable" (onPageChange)="onPageChange()" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy"
+                        [(mfSortOrder)]="sortOrder">
+                        <thead>
+                            <tr>
+                                <th (click)="sortClicked()" class="hearder-margin" *ngFor="let item of header">
+                                    <mfDefaultSorter by="{{item.name}}">{{item.displayText}} </mfDefaultSorter>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td *ngFor="let th of header" class="hearder-margin">
+                                    <div class="btn-group">
+                                        <input type="text" placeholder="Filter" [(ngModel)]="th.text" (keyup)="headerChange(th.text)"
+                                            class="form-control search-box">
+                                        <span (click)="clear(th)" *ngIf="th.text" class="searchclear glyphicon glyphicon-remove-circle form-control-feedback"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let item of mf.data; let j = index" data-index="#j">
+                            <tr>
+                                <td *ngFor="let th of header; let i = index" data-index="#i">
+                                    <span>
+                                        <i class="expand-button" (click)="onClickRow(item,j)" *ngIf="i==0 && currentIndex != j"
+                                            class="glyphicon glyphicon-chevron-right"></i>
+                                        <i class="expand-button" (click)="onClickRow(item,j)" *ngIf="i==0 && currentIndex == j"
+                                            class="glyphicon glyphicon-chevron-down"></i>
+                                    </span>
+                                    <span *ngIf="i!==fisrtable"> {{item[th.name]}}</span>
+                                    <img style="margin-left:50%;" *ngIf="i==fisrtable" src="assets/img/{{item[th.name]}}.png" />
+                                </td>
+                                <!-- width="10" -->
+                            </tr>
+                            <tr *ngIf="currentIndex == j">
+                                <td colspan="13">
+                                    <table class="table table-bordered table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th *ngFor="let item of childheader" class="text-center">
+                                                    {{item.displayText}}
+                                                    <!-- <mfDefaultSorter by="{{item.name}}">{{item.displayText}} </mfDefaultSorter> -->
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody *ngFor="let item of childdata; let k = index" data-index="#k">
+                                            <tr>
+                                                <td class="text-center" *ngFor="let th of childheader; let i = index"
+                                                    data-index="#i">
+                                                    <span>
+                                                        <i class="expand-button" (click)="onClickInternalRow(item,k)"
+                                                            *ngIf="i==0 && currentIndex2 != k" class="glyphicon glyphicon-chevron-right"></i>
+                                                        <i class="expand-button" (click)="onClickInternalRow(item,k)"
+                                                            *ngIf="i==0 && currentIndex2 == k" class="glyphicon glyphicon-chevron-down"></i>
+                                                    </span>
+                                                    <span *ngIf="i!=0"> {{item[th.name]}}</span>
+                                                    <span *ngIf="i==0">{{item.gphC_SALESLINE}}</span>
+
+                                                    <img *ngIf="i==8" src="assets/img/{{item.gphC_LINE_STATUS}}.png"
+                                                        alt="{item.gphC_LINE_STATUS}}" />
+                                                    <!-- <img width="10" *ngIf="i==secondtable" width="10" src="assets/img/{{item[th.name]}}.png" /> -->
+                                                </td>
+                                            </tr>
+                                            <tr *ngIf="currentIndex2 == k">
+                                                <td colspan="10">
+                                                    <div style="padding: 5px;">
+                                                        <div class="card-header">
+                                                            <strong> {{deatilData.gphC_PANEL_WORDING}}</strong>
+                                                        </div>
+                                                        <table class="table table-bordered table-hover">
+                                                            <tr>
+                                                                <td class="heading-td" colspan="2">
+                                                                    Sales Order Details
+                                                                </td>
+                                                                <td class="heading-td" colspan="2">
+                                                                    Replenishment Details
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="heading-td width25">
+                                                                    Promise Date
+                                                                </td>
+                                                                <td class="width25">
+                                                                    {{deatilData.uK_SALESDATE_PROMISE}}
+                                                                </td>
+                                                                <td class="heading-td width25">
+                                                                    Order
+                                                                </td>
+                                                                <td class="width25">
+                                                                    {{deatilData.uK_SALESREPLENISHMENT_ORDER}}
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td class="heading-td width25">
+                                                                    Requested Date
+                                                                </td>
+                                                                <td class="width25">
+                                                                    {{deatilData.uK_SALESDATE_REQUEST}}
+                                                                </td>
+                                                                <td class="heading-td width25">
+                                                                    Status
+                                                                </td>
+                                                                <td class="width25">
+                                                                    {{deatilData.uK_SALESREPLENISHMENT_STATUS}}
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td class="heading-td width25">
+                                                                    Quantity Required
+                                                                </td>
+                                                                <td class="width25">
+                                                                    {{deatilData.uK_SALESQTY_REQUIRED}}
+                                                                </td>
+                                                                <td class="heading-td width25">
+                                                                    Date
+                                                                </td>
+                                                                <td class="width25">
+                                                                    {{deatilData.uK_SALESREPLENISHMENT_DATE}}
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td class="heading-td width25">
+                                                                    Quantity Outstanding
+                                                                </td>
+                                                                <td class="width25">
+                                                                    {{deatilData.uK_SALESQTY_OUTST}}
+                                                                </td>
+                                                                <td class="heading-td width25">
+                                                                    Quantity
+                                                                </td>
+                                                                <td class="width25">
+                                                                    {{deatilData.uK_SALESREPLENISHMENT_QTY}}
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>
+
+                                                                </td>
+                                                                <td>
+
+                                                                </td>
+                                                                <td class="heading-td width25">
+                                                                    Received
+                                                                </td>
+                                                                <td class="width25">
+                                                                    {{deatilData.uK_SALESREPLENISHMENT_RECD}}
+                                                                </td>
+                                                            </tr>
+
+
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="7" style="padding:0px;">
+                                    <mfBootstrapPaginator [rowsOnPageSet]="[50,100,200]"></mfBootstrapPaginator>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i>User List
+                    <div class="pull-right">
+                        <button class="btn btn-primary" [routerLink]="['/superAdmin','user']">Add User</button>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <table class="table table-bordered" [mfData]="users" #mf="mfDataTable" [mfRowsOnPage]="5"
+                        [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <mfDefaultSorter by="user.email">Email</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="user.userRoles">Roles</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of mf.data">
+                                <td>{{item.user.email}}</td>
+                                <td>
+                                    <span *ngFor="let item of item.userRoles">{{item}} &nbsp;</span>
+                                </td>
+                                <td class="text-center">
+                                    <button style="padding: 3%;" [routerLink]="['/superAdmin','user',item.user.id]"
+                                        class="btn btn-primary">Edit</button>
+                                    <button *ngIf="item.user.email!='admin@mtms.com'" style="padding: 3%;" (click)="restUserPassword(item)"
+                                        [routerLink]="['/extranet',item.user.id,'resetPassword']" class="btn btn-primary">Reset
+                                        Password</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6" style="padding:0px;">
+                                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+</div>

@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "intranet.80", "Z:\intranet.80\", "{DFF0C170-3CD6-47CA-B0D0-EE86B7079205}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv2.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62020"
+		Debug.AspNetCompiler.PhysicalPath = "Z:\intranet.80\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62020\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62020"
+		Release.AspNetCompiler.PhysicalPath = "Z:\intranet.80\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62020\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62020"
+		SlnRelativePath = "Z:\intranet.80\"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MMDOnline", "Z:\MMDOnline\", "{62467737-15B8-477C-A269-BF4107C4E61A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv2.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62056"
+		Debug.AspNetCompiler.PhysicalPath = "Z:\MMDOnline\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62056\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62056"
+		Release.AspNetCompiler.PhysicalPath = "Z:\MMDOnline\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62056\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62056"
+		SlnRelativePath = "Z:\MMDOnline\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFF0C170-3CD6-47CA-B0D0-EE86B7079205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF0C170-3CD6-47CA-B0D0-EE86B7079205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62467737-15B8-477C-A269-BF4107C4E61A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62467737-15B8-477C-A269-BF4107C4E61A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3637DFBF-82C8-4833-991C-70D8AB221D60}
+	EndGlobalSection
+EndGlobal

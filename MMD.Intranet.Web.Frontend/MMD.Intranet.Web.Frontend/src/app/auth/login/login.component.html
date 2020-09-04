@@ -1,0 +1,55 @@
+<div class="app flex-row align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card-group mb-0">
+                    <div class="card p-4">
+                        <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)" class="login-form" novalidate>
+                            <div class="card-block">
+                                <h1>Login</h1>
+                                <p class="text-muted">Sign In to your account</p>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-addon">
+                                        <i class="icon-user"></i>
+                                    </span>
+                                    <input type="email" required class="form-control" formControlName="email" placeholder="email">
+                                </div>
+                                <div class="alert alert-danger" [hidden]="loginForm.controls.email.untouched || loginForm.controls.email.valid">
+                                    A valid email address is required
+                                </div>
+                                <div class="input-group mb-4">
+                                    <span class="input-group-addon">
+                                        <i class="icon-lock"></i>
+                                    </span>
+                                    <input type="password" required class="form-control" formControlName="password" placeholder="Password">
+                                </div>
+                                <div class="alert alert-danger" [hidden]="loginForm.controls.password.untouched || loginForm.controls.password.valid">
+                                    Password is required
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button type="submit" class="btn btn-primary px-4">Login</button>
+                                        <a (click)="guestLogin()" style="color:white;cursor: pointer;" class="btn btn-primary px-4">Log in as Guest</a>
+                                    </div>
+                                </div>
+                                <!-- <div class="row">
+                                    <div class="col-6">
+                                        <a style="color: #167495!important;; text-decoration: underline !important;cursor: pointer;" class="link">Forget Password</a>
+                                    </div>
+                                </div> -->
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="alert alert-danger" *ngIf="error">
+                                            <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{errorMessage}}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

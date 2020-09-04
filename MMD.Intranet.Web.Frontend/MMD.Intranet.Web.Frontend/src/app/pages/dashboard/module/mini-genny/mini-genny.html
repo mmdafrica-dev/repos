@@ -1,0 +1,155 @@
+<div class="card">
+    <div class="card-header uppercase">
+        <h6>{{gennyName}} Enquiries</h6>
+    </div>
+    <div class="card-block paddingright0">
+        <form #paForm="ngForm" class="margin-right1p" (ngSubmit)="submitGenric()">
+            <div class="row">
+                <div class="col-9 col-md-9">
+                    <select [(ngModel)]="selectedGenricValue" name="selectedGenric" class="form-control" required
+                        (change)="onChangeSelection()">
+                        <option [selected]="selectedGenricValue==''" value="">Select
+                            Enquiry
+                        </option>
+                        <option [selected]="selectedGenricValue==item.name" *ngFor="let item of genericList"
+                            value="{{item.name}}">
+                            {{item.displayText}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-3 col-md-3">
+                    <span class="input-group-btn pull-right margin-right2p">
+                        <button class="btn btn-secondary" type="submit">Go</button>
+                    </span>
+                </div>
+            </div>
+            <ng-container *ngIf="selectedGenric && selectedGenric.filters">
+                <div *ngFor="let filter of selectedGenric.filters">
+                    <div [ngSwitch]="filter.type">
+                        <div *ngSwitchCase="'date'">
+                            <div class="form-group row date-row">
+                                <label for="colFormLabelSm"
+                                    class="col-4 col-sm-4 col-md-4 col-form-label col-form-label-sm">{{filter.overrideDisplayLabel1?filter.overrideDisplayLabel1:'From'}}</label>
+                                <div class="col-8 col-sm-8 col-md-8">
+                                    <input autocomplete="off" *ngIf="fromFocus" (focus)="fromFocusFunction()"
+                                        type="text" name="datepickerFromModel" class="form-control"
+                                        placeholder="{{filter.overrideDisplayLabel1?filter.overrideDisplayLabel1:'From'}}"
+                                        [bsConfig]="{ dateInputFormat: 'DD MMM YYYY' }" bsDatepicker
+                                        [(ngModel)]="datepickerFromModel" />
+                                    <input autocomplete="off" *ngIf="fromFocusOut"
+                                        (ngModelChange)="fromFocusOutFunction()" type="text" name="datepickerFromModel"
+                                        class="form-control"
+                                        placeholder="{{filter.overrideDisplayLabel1?filter.overrideDisplayLabel1:'From'}}"
+                                        [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" bsDatepicker
+                                        [(ngModel)]="datepickerFromModel" />
+                                </div>
+                                <ng-container *ngIf="filter.isRangeSelectable">
+                                    <label for="colFormLabelSsm"
+                                        class="col-4 col-sm-4 col-md-4 col-form-label col-form-label-sm">{{filter.overrideDisplayLabel2?filter.overrideDisplayLabel2:'To'}}</label>
+                                    <div class="col-8 col-sm-8 col-md-8">
+                                        <input autocomplete="off" *ngIf="toFocus" (focus)="toFocusFunction()"
+                                            type="text" name="datepickerToModel" class="form-control"
+                                            placeholder="{{filter.overrideDisplayLabel2?filter.overrideDisplayLabel2:'To'}}"
+                                            [bsConfig]="{ dateInputFormat: 'DD MMM YYYY' }" bsDatepicker
+                                            [(ngModel)]="datepickerToModel" />
+                                        <input autocomplete="off" *ngIf="toFocusOut"
+                                            (ngModelChange)="toFocusOutFunction()" type="text" name="datepickerToModel"
+                                            class="form-control"
+                                            placeholder="{{filter.overrideDisplayLabel2?filter.overrideDisplayLabel2:'To'}}"
+                                            [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" bsDatepicker
+                                            [(ngModel)]="datepickerToModel" />
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div *ngSwitchCase="'text'">
+                            <div class="form-group row">
+                                <label for="colFormLabelSm"
+                                    class="col-4 col-sm-4 col-md-4 col-form-label col-form-label-sm">{{filter.overrideDisplayLabel1?filter.overrideDisplayLabel1:'From'}}</label>
+                                <div class="col-8 col-sm-8 col-md-8">
+                                    <input class="form-control no-clear" autocomplete="off" type="text"
+                                        name="textFromModel"
+                                        placeholder="{{filter.overrideDisplayLabel1?filter.overrideDisplayLabel1:'From'}}"
+                                        [(ngModel)]="textFromModel" />
+                                    <i *ngIf="filter.dropDown1" (click)="focusTextFromModel(filter)"
+                                        class="dropdwon-custom"></i>
+                                </div>
+
+                                <ng-container *ngIf="filter.isRangeSelectable">
+                                    <label for="colFormLabelSsm"
+                                        class="col-4 col-sm-4 col-md-4 col-form-label col-form-label-sm">{{filter.overrideDisplayLabel2?filter.overrideDisplayLabel2:'To'}}</label>
+                                    <div class="col-8 col-sm-8 col-md-8">
+                                        <input autocomplete="off" type="text" name="textToModel"
+                                            class="form-control no-clear"
+                                            placeholder="{{filter.overrideDisplayLabel2?filter.overrideDisplayLabel2:'To'}}"
+                                            [(ngModel)]="textToModel" />
+                                        <i (click)="focusTextToModel(filter)" class="dropdwon-custom"></i>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div *ngSwitchCase="'period'">
+                            <div class="form-group row less-padding">
+                                <label for="colFormLabelSm"
+                                    class="col-2 col-sm-2 col-md-2 col-form-label col-form-label-sm">{{filter.overrideDisplayLabel1?filter.overrideDisplayLabel1:'From'}}
+                                </label>
+                                <div class="col-6 col-sm-6 col-md-6">
+                                    <select class='form-control perioddate' name="datepickerPeriodYearFromModel"
+                                        [(ngModel)]="datepickerPeriodYearFromModel">
+                                        <option *ngFor="let periodYear of periodYears" value='{{periodYear.value}}'>
+                                            {{periodYear.text}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-4 col-sm-4 col-md-4">
+                                    <select class='form-control' name="periodFrom" [(ngModel)]='periodFrom'>
+                                        <option value='01'>01</option>
+                                        <option value='02'>02</option>
+                                        <option value='03'>03</option>
+                                        <option value='04'>04</option>
+                                        <option value='05'>05</option>
+                                        <option value='06'>06</option>
+                                        <option value='07'>07</option>
+                                        <option value='08'>08</option>
+                                        <option value='09'>09</option>
+                                        <option value='10'>10</option>
+                                        <option value='11'>11</option>
+                                        <option value='12'>12</option>
+                                    </select>
+                                </div>
+                                <ng-container *ngIf="filter.isRangeSelectable">
+                                    <label for="colFormLabelSm"
+                                        class="col-2 col-sm-2 col-md-2 col-form-label col-form-label-sm">{{filter.overrideDisplayLabel2?filter.overrideDisplayLabel2:'To'}}
+                                    </label>
+                                    <div class="col-6 col-sm-6 col-md-6">
+                                        <select class='form-control perioddate' name="datepickerPeriodYearToModel"
+                                            [(ngModel)]="datepickerPeriodYearToModel">
+                                            <option *ngFor="let periodYear of periodYears" value='{{periodYear.value}}'>
+                                                {{periodYear.text}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-4 col-sm-4 col-md-4">
+                                        <select class='form-control' name="periodTo" [(ngModel)]='periodTo'>
+                                            <option value='01'>01</option>
+                                            <option value='02'>02</option>
+                                            <option value='03'>03</option>
+                                            <option value='04'>04</option>
+                                            <option value='05'>05</option>
+                                            <option value='06'>06</option>
+                                            <option value='07'>07</option>
+                                            <option value='08'>08</option>
+                                            <option value='09'>09</option>
+                                            <option value='10'>10</option>
+                                            <option value='11'>11</option>
+                                            <option value='12'>12</option>
+                                        </select>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </form>
+    </div>
+</div>

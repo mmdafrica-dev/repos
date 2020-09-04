@@ -1,0 +1,32 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-12">
+      <!-- <div class="" *ngIf="searchResultHeader.length>0" style="width:100%;">
+        <div class="card-block paddingright0">
+          <em>Filters:</em>
+          <ng-container *ngFor="let item of searchResultHeader">
+            <strong>{{item.label}} :</strong> &nbsp;{{item.value}}
+          </ng-container>
+        </div>
+      </div> -->
+      <div *ngIf="showResult">
+        <mmd-genric-table [searchResultHeader]="searchResultHeader" currentPage="currentPage" key="key"
+          (valueChange)='getGenericFileData($event)' [links]="selectedGenricData.linkedColumns" [title]="title"
+          [selectedGenricData]="selectedGenricData" [data]="data" [header]="header" [panelhearder]="panelhearder"
+          [panel]="panel"></mmd-genric-table>
+      </div>
+    </div>
+    <div class="col-sm-12" [hidden]="!loadError">
+      <div class="panel-body">
+        <div class="alert alert-danger">
+          <strong>Error</strong> there was a problem retrieving your data, if the issue persists please contact
+          GPHCMTMSsupport@MMDGPHC.com confirming the enquiry, company and search criteria you are running.
+          <div>
+            <a (click)="goback()" class="btn btn-lg btn-default">
+              <i class="fa fa-times-circle"></i> Cancel</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

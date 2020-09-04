@@ -1,0 +1,80 @@
+<div class="card">
+    <div class="card-block">
+        <div class="row">
+            <div class="col-md-12">
+                Supplier Prices
+                <table class="table table-bordered" [mfData]="result" #mf="mfDataTable" [mfRowsOnPage]="5" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                    <thead>
+                        <tr class="heading">
+                            <th>
+                                <mfDefaultSorter by="ARRY1_REF_B">Supp</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="ACCMNAME">Name</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="partstD_SOURCE">Default Supp</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="arrY1_DATE">Start Date</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="arrydatE_IN">End Date</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="partdeF_SUPPLIER">Curr</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="arrycurr">Std Price</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="arryperC_VALUE1">Price Break 1</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="arrybreaK_POINT2">Price Break 2</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="arrybreaK_POINT3">Price Break 3</mfDefaultSorter>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr *ngFor="let item of mf.data">
+                            <td>{{item.parT1_PART}}</td>
+                            <td>{{item.partdesc}}</td>
+                            <td>{{item.partstD_SOURCE}}</td>
+                            <td>{{item.partqtY_STOCK}}</td>
+                            <td>{{item.partsaleS_GROUP}}</td>
+                            <td>{{item.partdeF_SUPPLIER}}</td>
+                            <td>{{item.accmname}}</td>
+                        </tr> -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6" style="padding:0px;">
+                                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <!-- <table class="table table-bordered table-hover">
+                <!-- <tr *ngFor="let item of collection">
+                        <td>{{item.ARRY1_REF_B}}</td>
+                        <td>{{item.ACCMNAME}}</td>
+                        <td></td>
+                        <td>{{item.arrY1_DATE}}</td>
+                        <td>{{item.arrydatE_IN}}</td>
+                        <td>{{item.arrycurr}}</td>
+                        <td>{{item.arryperC_VALUE1}}</td>
+                        <td>{{item.arrybreaK_POINT2}}</td>
+                        <td>{{item.arryperC_VALUE2}}</td>
+                        <td>{{item.arrybreaK_POINT3}}</td>
+                        <td>{{item.arryperC_VALUE3}}</td>
+                        <td>{{item.arrybreaK_POINT4}}</td>
+                        <td>{{item.arryperC_VALUE4}}</td>
+                    </tr> -->
+                <!-- </table> -->
+            </div>
+        </div>
+    </div>
+</div>

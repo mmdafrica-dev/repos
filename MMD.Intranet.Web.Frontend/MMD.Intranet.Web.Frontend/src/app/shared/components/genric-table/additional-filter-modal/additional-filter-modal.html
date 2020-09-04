@@ -1,0 +1,36 @@
+<div class="card" [style.max-width.px]="innerWidth" [style.width.%]="additionalFilter.width">
+    <div class="card-header uppercase" *ngIf="additionalFilter.isShow">
+        <button (click)="hide()" class="btn btn-default btn-outline-default pull-right"
+            style="background: transparent;padding: 0;width: 30px;">
+            <span style="color:#fff;font-size:24px;" aria-hidden="true">x</span>
+        </button>
+        <h6>ADDITIONAL FILTERS</h6>
+    </div>
+    <div class="modal-body">
+        <div id="table-responsive" *ngIf="additionalFilter.isShow" class="table-responsive scrollable-table">
+            <ng-container *ngFor="let headers of additionalFilter.hearderList;let h=index" data-index="#h">
+                <table class="table table-hover pannel-table table-bordered"
+                    [style.width.%]="additionalFilter.pannelWidth">
+                    <tr *ngFor="let header of headers;">
+                        <td class="width-33"
+                            [ngClass]="{'blankColumn': (!header.isDisplay),'heading-td':header.isDisplay ,'white-color':!header.isDisplay}">
+                            <span *ngIf="header.isDisplay">{{ header.displayText}}</span>
+                            <span *ngIf="!header.isDisplay"> &nbsp;</span>
+                        </td>
+                        <td class="data-td td-width-67 white-color"
+                            [ngClass]="{'left-align':header.justification=='L', 'right-align': header.justification=='R','center-align':header.justification=='C','blankColumn':(!header.isDisplay) }">
+                            <input *ngIf="header.isDisplay" type="text" class="form-control search-box"
+                                placeholder="filter" [(ngModel)]="header.text" (keyup)="headerChange(header.text)" />
+                            <span (click)="clear(header)" *ngIf="header.text"
+                                class="searchclear glyphicon glyphicon-remove-circle form-control-feedback"></span>
+                        </td>
+                    </tr>
+                </table>
+            </ng-container>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="hide()">Cancel</button>
+        <button type="button" class="btn btn-outline-dark" (click)="setValue()">Go</button>
+    </div>
+</div>

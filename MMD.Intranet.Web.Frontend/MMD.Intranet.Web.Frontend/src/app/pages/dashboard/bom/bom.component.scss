@@ -1,0 +1,12 @@
+.table th,
+.table td {
+    padding: 2px 0.75rem
+}
+
+tr.heading {
+    background: #505152;
+    color: #fff;
+}
+td:nth-child(5){
+    text-align: right;
+}

@@ -1,0 +1,93 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Intranet.SiteMaster" %>
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <meta charset="utf-8" />
+
+    <asp:PlaceHolder runat="server">
+        <link href="~/Content/favicon1.ico" rel="shortcut icon" type="image/x-icon" />
+        <%--<script src="<%: ResolveUrl("~/Scripts/modernizr-2.6.2.js") %>"></script>--%>
+    </asp:PlaceHolder>
+    <link href="~/favicon1.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <title>MMD Africa</title>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <link href="Content/Pager.css" rel="stylesheet" />
+
+
+    <link href="<%=Page.ResolveUrl("~/Content/Site2.css")%>" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+
+</head>
+<body>
+    <form runat="server">
+        <div class="jumbotron">
+            <img src="<%=Page.ResolveUrl("~/Content/Images/MMDLogo.png")%>" alt="MMD Logo" class="logo" />
+            <h2>MMD Mineral Sizing Africa</h2>
+        </div>
+        <div class="loginInfo">
+            <p>Hello, <asp:LoginName runat="server" />&nbsp;&nbsp;</p>
+            <p><asp:Label ID="localIP" runat="server" Text=""></asp:Label></p>
+        </div>
+        <%-- <div class="row">--%>
+        <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <%--<a class="navbar-brand" href="#">Project name</a>--%>
+                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="<%=Page.ResolveUrl("~/default.aspx")%>">Home</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+            
+        </div>
+
+        <%--<hr />--%>
+
+        <div class="container">
+            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+
+            <section class="content-wrapper main-content clear-fix">
+                <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+            </section>
+        </div>
+
+        <%--<footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>
+                        &copy; <%: DateTime.Now.Year %> - MMD Application
+                    </p>
+                </div>
+            </div>
+        </footer>--%>
+    </form>
+</body>
+</html>

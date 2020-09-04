@@ -1,0 +1,26 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Role List
+    <div class="pull-right">
+      <button class="btn btn-primary padding-none" [routerLink]="['/superAdmin','role']">Add Role</button>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of roles">
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>
+          <button [routerLink]="['/superAdmin','role',item.id]" class="btn btn-primary btn-sm">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

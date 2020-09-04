@@ -1,0 +1,27 @@
+.heading-td {
+    background: #505152;
+    color: #fff;
+}
+
+tr[_ngcontent-c1] {
+    line-height: 14px;
+}
+
+.table th,
+.table td {
+    padding: 2px 0.75rem
+}
+
+.nav-tabs .nav-link,
+.nav-tabs .navbar .dropdown-toggle,
+.navbar .nav-tabs .dropdown-toggle {
+    text-decoration: none !important;
+}
+
+.margin-right-8 button {
+    margin-top: 35%;
+    height: 60% !important;
+    background-color: green;
+    color: yellow;
+    border-radius: 8px;
+}

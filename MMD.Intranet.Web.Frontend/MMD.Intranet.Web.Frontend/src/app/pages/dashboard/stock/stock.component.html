@@ -1,0 +1,126 @@
+<div class="card">
+    <div class="card-block">
+        <div class="row">
+            <div class="col-md-12">
+                Bin Details
+                <table class="table table-bordered" [mfData]="result" #mf="mfDataTable" [mfRowsOnPage]="5" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                    <thead>
+                        <tr class="heading">
+                            <th>
+                                <mfDefaultSorter by="BINS1_STORE">Ref</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="BINS1_STORE">Store</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="BINS1_BIN">Bin</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="BINS5_CONTRACT">Div</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="BINSDATE_L_ISS">Last ISS</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="BINSDATE_L_REC">Last Rct</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="BINSDATE_CHECK">Last Chk</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="BINSQTY_ON_HAND">Qty</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="BINSQTY_KIT">Qty On Kits</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="WSPARTVALUE">Value</mfDefaultSorter>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+                <!-- <tr *ngFor="let item of binDetail">
+                        <td>{{item.BINS1_STORE}}</td>
+                        <td>{{item.BINS1_BIN}}</td>
+                        <td>{{item.BINS5_CONTRACT}}</td>
+                        <td>{{item.BINSDATE_L_ISS}}</td>
+                        <td>{{item.BINSDATE_L_REC}}</td>
+                        <td>{{item.BINSDATE_CHECK}}</td>
+                        <td>{{item.BINSQTY_ON_HAND}}</td>
+                        <td>{{item.BINSQTY_KIT}}</td>
+                        <td>{{item.WSPARTVALUE}}</td>
+                    </tr> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                Lot Details
+                <table class="table table-bordered" [mfData]="result" #mf="mfDataTable" [mfRowsOnPage]="5" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                    <thead>
+                        <tr class="heading">
+                            <th>
+                                <mfDefaultSorter by="bloT1_LOT_REF">Lot Ref</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="bloT1_LOT_LINE">Lot Line</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="bloT1_STORE">Store</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="bloT1_BIN">Bin</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="bloT1_CONTRACT">Div</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="bloT6_DATE">Lot Date</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="blotdatE_F_ISS">First Iss</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="blotdatE_L_ISS">Last ISS</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="blottdatE_SCK">Last Chk</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="clotexpirY_DATE">Exp Date</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="blotqtY_ON_HAND">Qty</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="blotqtY_1">Qty On Kits</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="wspartvalue">Value</mfDefaultSorter>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <!-- <tr *ngFor="let item of lotDetail">
+                        <td>{{item.bloT1_LOT_REF}}</td>
+                        <td>{{item.bloT1_LOT_LINE}}</td>
+                        <td>{{item.bloT1_STORE}}</td>
+                        <td>{{item.bloT1_BIN}}</td>
+                        <td>{{item.bloT1_CONTRACT}}</td>
+                        <td>{{item.bloT6_DATE}}</td>
+                        <td>{{item.blotdatE_F_ISS}}</td>
+                        <td>{{item.blotdatE_L_ISS}}</td>
+                        <td>{{item.blottdatE_SCK}}</td>
+                        <td>{{item.clotexpirY_DATE}}</td>
+                        <td>{{item.blotqtY_ON_HAND}}</td>
+                        <td>{{item.blotqtY_1}}</td>
+                        <td>{{item.wspartvalue}}</td>
+                    </tr> -->
+            </div>
+        </div>
+    </div>
+</div>

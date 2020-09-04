@@ -1,0 +1,11 @@
+<div *ngIf="searchoption.type==='Selection'">
+  <select required [(ngModel)]="searchoption.value" class="form-control" *ngIf="!noValue">
+  <option *ngFor="let item of searchoption.data">{{item.value}}</option>
+</select>
+  <select required [(ngModel)]="searchoption.value" (ngModelChange)="change($event)" class="form-control" *ngIf="noValue">
+  <option  *ngFor="let item of searchoption.data">{{item}}</option>
+</select>
+</div>
+<div *ngIf="searchoption.type==='text'">
+  <input type="text" class="form-control" [(ngModel)]="searchoption.value" />
+</div>

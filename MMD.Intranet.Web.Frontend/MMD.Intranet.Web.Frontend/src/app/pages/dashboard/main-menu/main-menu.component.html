@@ -1,0 +1,23 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-block row">
+                    <div class="col-md-4 button-margin-bottom" *ngFor="let main of mainMenus">
+
+                        <a *ngIf="!main.link" class="borderColor" routerLink="/extranet/submenu/{{mainMenu}}/{{main.menuKey}}" type="button ">{{main.title}}</a>
+                        <a *ngIf="main.link" class="borderColor" routerLink="/extranet/{{main.link}}" type="button ">{{main.title}}</a>
+                        <!-- <div *ngFor="let item of main.items">
+                            <button *ngIf="item.items=='null'" routerLink="/pages/search/{{main.menuKey}}/{{item.menuKey}}" class="btn btn-outline-secondary btn-md btn-block b1p borderColor " type="button ">
+                                <span>   {{item.title}}</span>
+                        </button>
+                        </div> -->
+                        <!-- <button routerLink="/pages/search/{{main.menuKey}}/{{item.menuKey}}" *ngFor="let item of main.items " class="btn btn-outline-secondary btn-md btn-block b1p borderColor " type="button "> -->
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

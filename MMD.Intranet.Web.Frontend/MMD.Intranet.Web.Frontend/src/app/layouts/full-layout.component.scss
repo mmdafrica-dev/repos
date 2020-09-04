@@ -1,0 +1,121 @@
+    .loader.modal {
+        position: fixed;
+        top: 30%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 9999;
+        display: none;
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+        outline: 0;
+    }
+
+    .fa-pulse {
+        -webkit-animation: fa-spin 1s infinite steps(8);
+        animation: fa-spin 1s infinite steps(8);
+        /*color: #fff;*/
+        z-index: 99999;
+    }
+
+    .loader.modal-body {
+        background-color: transparent;
+    }
+
+    .loader.modal-content {
+        background-color: transparent;
+        -webkit-box-shadow: none;
+        border: none;
+    }
+
+    .loader.modal-backdrop.in {
+        filter: alpha(opacity=50);
+        opacity: .5;
+    }
+
+    .loader.modal-backdrop {
+        z-index: 99999;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 99999;
+        background-color: #000;
+    }
+
+    .nat-loader {
+        top: 40% !important;
+        bottom: inherit !important;
+    }
+
+    .nat-loader .modal-dialog .modal-content {
+        box-shadow: none !important;
+        border: none !important;
+        color: #fff !important;
+        background-color: transparent !important;
+    }
+
+    .log-out {
+        cursor: pointer !important;
+        text-decoration: underline;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    .app-header.navbar .navbar-brand {
+        border-bottom: none !important;
+        width: 100px !important;
+        background-size: auto 67px;
+    }
+
+    @media(max-width:991px) {
+        .app-header .navbar-brand {
+            margin: 0 !important;
+            width: 20% !important;
+        }
+
+        .current-page {
+            // width:55%;
+            font-size: 18px; // text-transform: uppercase;
+        }
+    }
+
+    .current-page {
+        // width:55%;
+        font-size: 40px; // text-transform: uppercase;
+    }
+
+    .mmd-ex {
+        text-decoration: underline;
+    }
+
+    // @media (max-width: 991px) .app-header .navbar-toggler {}
+    .simple-dropdown {
+        margin-left: 7% !important;
+    }
+
+    .userName {
+        color: yellow !important;
+        text-decoration: none !important;
+    }
+
+    .refresh-link {
+        text-decoration: underline !important;
+        color: rgba(0, 0, 0, 0.3) !important;
+        cursor: pointer;
+    }
+
+    a.text-underscore {
+        text-decoration: underline !important;
+    }
+
+    //     .dropdown-menu > a:last-child{
+    //     float: left;
+    //     text-align: center;
+    //     width: 100%;
+    //     background: #a9d96c;
+    //     border-radius: 0 0 3px 3px;
+    // }
